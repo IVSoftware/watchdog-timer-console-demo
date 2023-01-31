@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             Console.Title = "Test WDT";
-            var wdt = new WatchDogTimer { Interval = TimeSpan.FromMilliseconds(1000) };
+            var wdt = new WatchDogTimer { Interval = TimeSpan.FromSeconds(1) };
 
             Console.WriteLine(DateTime.Now.ToLongTimeString());
 
