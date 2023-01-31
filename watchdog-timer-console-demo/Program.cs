@@ -5,14 +5,14 @@
         static void Main(string[] args)
         {
             Console.Title = "Test WDT";
-            var wdt = new WatchDogTimer { Interval = TimeSpan.FromMilliseconds(500) };
+            var wdt = new WatchDogTimer { Interval = TimeSpan.FromMilliseconds(1000) };
 
             Console.WriteLine(DateTime.Now.ToLongTimeString());
 
-            // "Update view 500 ms after the last restart.
+            // "Update view 1 second after the last restart.
             for (int i = 0; i < 10; i++)
             {
-                wdt.Restart(onRanToCompletion: MockUpdateView);
+                wdt.Restart(onRanToCompletion: ()=>MockUpdateView());
                 Thread.Sleep(TimeSpan.FromMilliseconds(500));
             }
             Console.ReadKey();
